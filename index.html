@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HIGHLIGHT Studio — 以人文铸科技</title>
+<meta name="description" content="HIGHLIGHT Studio：软件、Minecraft 服务器、媒体与 Minecraft 动画。让科技归还于人，真正为人所用。">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"><i></i><b></b><u></u></div>
+
+<div class="island-wrap">
+  <div class="island" id="island">
+    <a class="island-brand" href="./index.html" aria-label="HIGHLIGHT STUDIO">
+      <img class="island-logo" src="./assets/logo-wordmark-light.png" alt="HIGHLIGHT STUDIO">
+    </a>
+    <span class="island-links" id="islandLinks">
+      <a data-scroll="#method">品牌</a>
+      <a data-scroll="#feature">越权者</a>
+      <a data-scroll="#film">品牌片</a>
+      <a data-scroll="#products">产品</a>
+      <a data-scroll="#team">团队</a>
+    </span>
+    <a class="island-join" href="./join.html">加入我们 <span>↗</span></a>
+    <button class="island-toggle" id="islandToggle" aria-label="打开菜单" aria-expanded="false">
+      <svg viewBox="0 0 18 18" aria-hidden="true">
+        <line id="barA" x1="1" y1="6" x2="17" y2="6"></line>
+        <line id="barB" x1="1" y1="12" x2="17" y2="12"></line>
+      </svg>
+    </button>
+    <i class="island-progress" id="islandProgress" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div class="menu-backdrop" id="menuBackdrop"></div>
+<div class="menu-panel" id="menuPanel">
+  <div class="menu-col">
+    <h4>Navigate</h4>
+    <a class="menu-link" data-scroll="#method"><i>01</i>品牌内核</a>
+    <a class="menu-link" data-scroll="#feature"><i>02</i>越权者</a>
+    <a class="menu-link" data-scroll="#film"><i>03</i>品牌片</a>
+    <a class="menu-link" data-scroll="#products"><i>04</i>产品矩阵</a>
+    <a class="menu-link" data-scroll="#team"><i>05</i>团队介绍</a>
+    <a class="menu-link" href="./join.html"><i>06</i>加入我们</a>
+  </div>
+  <div class="menu-side">
+    <h4>Studio</h4>
+    <p>我们做软件，做 Minecraft 服务器，做媒体，做 Minecraft 动画。技术是手段，人是目的。</p>
+    <span class="hl-mono">QQ 3877364376</span>
+    <span class="hl-mono">hsdianzd@our-mc.cn</span>
+  </div>
+</div>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero-canvas" aria-hidden="true"><canvas id="heroCanvas"></canvas></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow">HIGHLIGHT STUDIO — 软件 / 服务器 / 媒体 / 动画</span>
+      <span class="section-index">以人文铸科技</span>
+    </div>
+    <h1 class="hero-h1">
+      <span class="ln"><span>以人文</span></span>
+      <span class="ln"><span>铸<em>科技</em>。</span></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-lede">技术是手段，人是目的。<b><span class="underlined">让科技归还于人，真正为人所用。</span></b></p>
+      <div class="scroll-hint"><i></i><span>SCROLL</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="htext" aria-label="品牌标识">
+  <div class="htext-track" id="htextTrack">
+    <div class="htext-item">
+      <span class="htext-word solid">HIGHLIGHT</span>
+      <span class="htext-dot"></span>
+      <span class="htext-word">STUDIO</span>
+      <img class="htext-mark" src="./assets/logos/yqz-white.png" alt="越权者">
+      <span class="htext-word red">以人文铸科技</span>
+      <span class="htext-dot"></span>
+      <span class="htext-word serif">让科技归还于人</span>
+      <span class="htext-dot"></span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="method">
+  <div class="sec-head">
+    <span class="eyebrow">CORE</span>
+    <span class="section-index">01 / 品牌内核</span>
+  </div>
+  <div class="grid3">
+    <span class="section-index">两种用法</span>
+    <div>
+      <h2 class="mf-h2">我们不生产高光，<br><span>我们把灯打在它身上。</span></h2>
+      <p class="mf-words" id="mfWords">当名词，它是高光，是一个视频里最值得留下的那几秒，一个软件里让人愿意截图发给朋友的那一处。</p>
+      <blockquote class="quote breath">当动词，它是去点亮，是去把已经在那里、却没人看见的好东西标记出来。<cite>HIGHLIGHT 这个名字</cite></blockquote>
+    </div>
+    <div class="mf-note">
+      <p class="note"><b>高光不是全部，但只有它会被记住。</b>很多技术不是不够好，是没人替它说人话；很多人不是不聪明，是没被人认真解释过一次。</p>
+      <p class="note"><b>是「铸」，而非「造」。</b>造是从无到有，而铸是把已有的东西，在高温下重新塑形——技术是矿，人是模具。</p>
+      <p class="note"><b>写代码之前先问一句。</b>「谁在什么状态下会用它」「它好用吗」。让技术在到达人之前，先学会与人交流。</p>
+    </div>
+  </div>
+</section>
+
+<section class="feat wrap" id="feature">
+  <div class="sec-head">
+    <span class="eyebrow">FEATURED</span>
+    <span class="section-index">02 / 首页推荐</span>
+  </div>
+  <div class="grid3">
+    <span class="section-index">系列短片</span>
+    <div>
+      <span class="feat-badge"><i></i>Minecraft 动画短片系列</span>
+      <h2 class="mf-h2" style="margin-top:22px">越权者</h2>
+      <p class="measure" style="margin-top:18px">腐竹突然消失，世界会变成什么样……</p>
+    </div>
+    <div class="mf-note">
+      <p class="note"><b>OVERRIDE / 系列</b>HIGHLIGHT Studio 出品的 Minecraft 动画短片系列。</p>
+      <div class="pm-links" style="margin-top:16px">
+        <a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">哔哩哔哩 · HIGHLIGHT Studio ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="feat-stage" id="featStage">
+    <span class="feat-corner tl" aria-hidden="true"></span>
+    <span class="feat-corner br" aria-hidden="true"></span>
+    <div class="feat-logo-stack">
+      <img class="l-base" src="./assets/logos/yqz-white.png" alt="越权者">
+      <img class="l-ox" src="./assets/logos/yqz-oxblood.png" alt="" aria-hidden="true">
+      <img class="l-red" src="./assets/logos/yqz-red.png" alt="" aria-hidden="true">
+    </div>
+    <div class="feat-scan" id="featScan"></div>
+  </div>
+  <div class="feat-meta">
+    <div><b>SERIES</b><span>越权者 / OVERRIDE</span></div>
+    <div><b>FORMAT</b><span>Minecraft 动画短片</span></div>
+    <div><b>STUDIO</b><span>HIGHLIGHT Studio</span></div>
+    <div><b>WATCH</b><span>哔哩哔哩</span></div>
+  </div>
+</section>
+
+<section class="film wrap" id="film">
+  <div class="sec-head">
+    <span class="eyebrow">BRAND FILM</span>
+    <span class="section-index">03 / 品牌文化片</span>
+  </div>
+  <div class="film-head">
+    <div>
+      <h2 style="margin-top:0">品牌片</h2>
+    </div>
+  </div>
+
+  <div class="film-pending" role="status" aria-label="品牌片暂未制作完成">
+    <span>BRAND FILM / IN PRODUCTION</span>
+    <strong>暂未制作完成</strong>
+    <i>COMING SOON</i>
+  </div>
+</section>
+
+<section class="pm wrap" id="products">
+  <div class="sec-head">
+    <span class="eyebrow">PRODUCTS</span>
+    <span class="section-index">04 / 产品矩阵</span>
+  </div>
+  <div class="grid3">
+    <span class="section-index">四条线</span>
+    <div>
+      <h2 class="mf-h2">软件、服务器、<br><span>媒体、动画。</span></h2>
+      <p class="measure" style="margin-top:18px">做出一批让人不想关掉的软件，和一批让人愿意看第二遍的片子。</p>
+    </div>
+    <div class="mf-note">
+      <p class="note"><b>关于「暂未上线」</b>纯 AI 屎山，不要问为什么，问就是还没做到给人用的程度。</p>
+    </div>
+  </div>
+
+  <div class="pm-group">
+    <div class="pm-group-head"><b>一</b><h3>AI 工具</h3><small>SOFTWARE &amp; MODELS</small></div>
+    <div class="pm-list">
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>CubexDesktop</h4>
+          <span class="pm-en">AGENT WORKSTATION / 智能体协同工作站</span>
+          <p>智能体协同工作站。使用提示词优化、自动应用 skill、错误学习，强化模型能力。</p>
+          <div class="pm-tags"><span>提示词优化</span><span>自动应用 skill</span><span>错误学习</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill soon">● 暂未上线</span>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>CubexTeam</h4>
+          <span class="pm-en">TEAM WORKSPACE / 一站式团队协作平台</span>
+          <p>集成 AI 助手 Echo、CodeForge 代码仓库（分支、PR、Issue、流水线）、在线文档协同编辑、资源库（上传、审核、分享）、即时通讯与语音通话、AI 模块，支持权限管理与公网安全访问。</p>
+          <div class="pm-tags"><span>CodeForge</span><span>文档协同</span><span>资源库</span><span>通讯与语音</span><span>权限管理</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill soon">● 暂未上线</span>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon echo"><img src="./assets/logos/cubex-echo.svg" alt=""></div>
+        <div>
+          <h4>Cubex-Echo</h4>
+          <span class="pm-en">AI ASSISTANT / CubexTeam 的智能 AI 助手</span>
+          <p>支持工具调用与编程模式，新项目脚手架、功能开发、修 Bug、代码审查等技能按需自选；具备长任务能力，步骤清单逐步推进、进度实时可视；可跨资源库、文档库、CodeForge 智能搜索，命中结果生成可点击直达卡片并高亮定位；还能联网搜索、创建编辑文档、发送消息，模糊描述也能精准找到目标。</p>
+          <div class="pm-tags"><span>工具调用</span><span>编程模式</span><span>长任务</span><span>跨库搜索</span><span>联网搜索</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill soon">● 暂未上线</span>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>Cubex 系列模型</h4>
+          <span class="pm-en">SMALL PARAM · TRANSFORMER + MOE + SEMANTIC ECHO</span>
+          <p>以小参数模型和 transformer + MoE + Semantic Echo 混合架构，配合极致的后训练，以小参数和极小激活参数比肩市面主流大模型。</p>
+          <div class="pm-tags"><span>小参数</span><span>MoE</span><span>Semantic Echo</span><span>极致后训练</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill soon">● 正在规划</span>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pm-group">
+    <div class="pm-group-head"><b>二</b><h3>OurMC 系列服务器</h3><small>MINECRAFT SERVERS</small></div>
+    <div class="pm-list">
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>OurMC 插件生存服务器</h4>
+          <span class="pm-en">SURVIVAL / 插件服</span>
+          <p>插件生存服，科技、魔法等等。</p>
+          <div class="pm-tags"><span>生存</span><span>科技</span><span>魔法</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill live">● 原版直连</span>
+          <div class="pm-links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn ↗</a></div>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>Gelysium 坤舆乐境</h4>
+          <span class="pm-en">CIVILIZATION SIM / 长期文明模拟服</span>
+          <p>1:500 高精度真实地球投影，山川海洋完美还原，拒绝随机地形开荒。搭载自研 Geotowny 模组，打破传统领地限制：自主建立聚落通商、组建联盟、策略经营，所有决策由你掌控。集成农夫乐事、科技工业、生态生物及千款家具，更有熔炉升级与进阶钓鱼。兼顾城建养老与硬核策略，原版客户端即可进入。管理规范透明，尊重自治，无特权干预。</p>
+          <div class="pm-tags"><span>1:500 真实地球</span><span>Geotowny</span><span>聚落通商</span><span>联盟</span><span>原版直连</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill live">● 原版直连</span>
+          <div class="pm-links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn ↗</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pm-group">
+    <div class="pm-group-head"><b>三</b><h3>自媒体账号</h3><small>MEDIA</small></div>
+    <div class="pm-list">
+      <article class="pm-card">
+        <div class="pm-icon face"><img src="./assets/avatars/fangkuai.jpg" alt=""></div>
+        <div>
+          <h4>方块守护者</h4>
+          <span class="pm-en">抖音 · 哔哩哔哩</span>
+          <p>视频剪辑、视频制作、动画制作。</p>
+          <div class="pm-tags"><span>剪辑</span><span>视频制作</span><span>动画制作</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill live">● 已发布</span>
+          <div class="pm-links">
+            <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">抖音 ↗</a>
+            <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon face"><img src="./assets/avatars/dianzd.jpg" alt=""></div>
+        <div>
+          <h4>点中点</h4>
+          <span class="pm-en">GitHub · 哔哩哔哩</span>
+          <p>负责软件编写，也参与视频制作。</p>
+          <div class="pm-tags"><span>软件</span><span>服务器</span><span>CubexTeaM</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill live">● 已发布</span>
+          <div class="pm-links">
+            <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>HIGHLIGHT Studio</h4>
+          <span class="pm-en">哔哩哔哩</span>
+          <p>工作室自己的账号。</p>
+          <div class="pm-tags"><span>工作室</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill live">● 已发布</span>
+          <div class="pm-links"><a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">哔哩哔哩 ↗</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pm-group">
+    <div class="pm-group-head"><b>四</b><h3>动画</h3><small>ANIMATION</small></div>
+    <div class="pm-list">
+      <article class="pm-card">
+        <div class="pm-icon"><img src="./assets/logos/yqz-white.png" alt="" style="width:36px;height:auto"></div>
+        <div>
+          <h4>越权者</h4>
+          <span class="pm-en">OVERRIDE / 系列 MC 动画短片</span>
+          <p>腐竹突然消失，世界会变成什么样……</p>
+          <div class="pm-tags"><span>系列短片</span><span>Minecraft 动画</span></div>
+        </div>
+        <div class="pm-side">
+          <span class="pill live">● 已发布</span>
+          <div class="pm-links"><a data-scroll="#feature">看这个系列 ↑</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pm wrap" id="team">
+  <div class="sec-head">
+    <span class="eyebrow">TEAM</span>
+    <span class="section-index">05 / 团队介绍</span>
+  </div>
+  <div class="grid3">
+    <span class="section-index">两个团队</span>
+    <div>
+      <h2 class="mf-h2">技术的部分是矿，<br><span>人的部分是模具。</span></h2>
+    </div>
+    <div class="mf-note">
+    </div>
+  </div>
+
+  <div class="pm-group">
+    <div class="pm-group-head"><b>成员</b><h3>HIGHLIGHT Studio</h3><small>MEMBERS</small></div>
+    <div class="pm-list">
+      <article class="pm-card">
+        <div class="pm-icon face"><img src="./assets/avatars/dianzd.jpg" alt=""></div>
+        <div>
+          <h4>点中点</h4>
+          <span class="pm-en">软件 / 服务器 / CubexTeaM</span>
+          <p>你好，我是点中点，如你所见我是一个阴阳脑袋的方块人……在团队中负责软件的编写，你现在看到的这个官网就是我写的😋 还有服务器和 CubexTeaM 的主要负责人都是我哦~ 当然视频的制作多多少少也是会参与的。</p>
+          <div class="pm-tags"><span>软件编写</span><span>官网</span><span>服务器</span><span>CubexTeaM</span></div>
+        </div>
+        <div class="pm-side">
+          <div class="pm-links">
+            <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon face"><img src="./assets/avatars/fangkuai.jpg" alt=""></div>
+        <div>
+          <h4>方块守护者</h4>
+          <span class="pm-en">剪辑 / 视频制作 / 动画制作</span>
+          <p>主要负责视频剪辑、视频制作和动画制作，其他的等他自己来写😋</p>
+          <div class="pm-tags"><span>剪辑</span><span>视频制作</span><span>动画制作</span></div>
+        </div>
+        <div class="pm-side">
+          <div class="pm-links">
+            <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">抖音 ↗</a>
+            <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon face"><img src="./assets/avatars/logist.jpg" alt=""></div>
+        <div>
+          <h4>Logist</h4>
+          <span class="pm-en">插件开发 / 开源工具</span>
+          <p>一名喜欢代码但是能力不足，一边用 AI 开发项目一边深入学习的高中生。主要在搞服务器和Cubex系列[摸鱼中][爱跑路]</p>
+          <div class="pm-tags"><span>插件开发</span><span>ServerTicket</span><span>MCcmd</span></div>
+        </div>
+        <div class="pm-side">
+          <div class="pm-links">
+            <a href="https://github.com/Logist1024" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://logist1024.github.io/" target="_blank" rel="noopener">个人主页 ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="pm-group">
+    <div class="pm-group-head"><b>子团队</b><h3>OurmcTeam / CubexTeaM</h3><small>SUB TEAMS</small></div>
+    <div class="pm-list">
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>OurmcTeam</h4>
+          <span class="pm-en">OurMC 系列服务器</span>
+          <p>成员介绍待补充。</p>
+          <div class="pm-tags"><span>服务器</span></div>
+        </div>
+        <div class="pm-side">
+          <div class="pm-links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn ↗</a></div>
+        </div>
+      </article>
+
+      <article class="pm-card">
+        <div class="pm-icon" aria-hidden="true"></div>
+        <div>
+          <h4>CubexTeaM</h4>
+          <span class="pm-en">Cubex 系列软件与模型</span>
+          <p>成员介绍待补充。</p>
+          <div class="pm-tags"><span>软件</span><span>模型</span></div>
+        </div>
+        <div class="pm-side">
+          <div class="pm-links"><a data-scroll="#products">看产品 ↑</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="joinband" id="join">
+  <div class="joinband-inner">
+    <span class="eyebrow">06 / JOIN US</span>
+    <h2>还差<br><em>一个你。</em></h2>
+    <p>下面这些位置都还缺人。想做动画、想写软件、想管服务器，都可以来。</p>
+    <a class="join-cta" href="./join.html"><u></u><span style="position:relative">加入我们</span><i style="position:relative">↗</i></a>
+    <div class="joinband-roles">
+      <span>编曲</span><span>动画制作</span><span>宣发</span><span>美术</span><span>剪辑</span><span>插件开发</span><span>模组开发</span><span>NET8+ 软件开发</span><span>用户界面设计</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="foot">
+  <div class="foot-top">
+    <div class="foot-col">
+      <h5>Studio</h5>
+      <p>HIGHLIGHT Studio</p>
+      <p>软件 · 服务器 · 媒体 · Minecraft 动画</p>
+      <p>以人文铸科技</p>
+    </div>
+    <div class="foot-col">
+      <h5>Products</h5>
+      <a data-scroll="#products">CubexDesktop</a>
+      <a data-scroll="#products">CubexTeam</a>
+      <a data-scroll="#products">Cubex-Echo</a>
+      <a data-scroll="#products">Cubex 系列模型</a>
+      <a href="https://our-mc.cn" target="_blank" rel="noopener">OurMC 系列服务器 ↗</a>
+    </div>
+    <div class="foot-col">
+      <h5>Media</h5>
+      <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">方块守护者 · 哔哩哔哩</a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">方块守护者 · 抖音</a>
+      <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">点中点 · 哔哩哔哩</a>
+      <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">点中点 · GitHub</a>
+      <a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">HIGHLIGHT Studio · 哔哩哔哩</a>
+      <a data-scroll="#feature">越权者</a>
+    </div>
+    <div class="foot-col">
+      <h5>Join</h5>
+      <a href="./join.html">加入我们 ↗</a>
+      <a href="mailto:hsdianzd@our-mc.cn">hsdianzd@our-mc.cn</a>
+      <p>QQ 3877364376</p>
+    </div>
+  </div>
+
+  <div class="foot-mark" id="footMark">
+    <div class="foot-mark-inner" id="footMarkInner">
+      <canvas class="foot-mark-canvas" id="footPx" aria-hidden="true"></canvas>
+      <img class="foot-logo" src="./assets/logo-wordmark-light.png" alt="HIGHLIGHT STUDIO">
+    </div>
+  </div>
+
+  <div class="foot-bar">
+    <span><b>© 2026 HIGHLIGHT STUDIO</b></span>
+    <span>让科技归还于人，真正为人所用</span>
+    <span><a data-scroll="#top" style="color:inherit">回到顶部 ↑</a></span>
+  </div>
+</footer>
+
+<script src="./assets/vendor/gsap.min.js"></script>
+<script src="./assets/vendor/ScrollTrigger.min.js"></script>
+<script src="./assets/vendor/ScrollToPlugin.min.js"></script>
+<script src="./assets/vendor/SplitText.min.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
+
+
+
+
