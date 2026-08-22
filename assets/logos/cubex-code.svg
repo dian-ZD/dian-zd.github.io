@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Cubex-code">
+  <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M24 8 10.14 16v16L24 40l13.86-8V16Z"/>
+    <path d="M24 16 17.07 20v8L24 32l6.93-4v-8Z"/>
+    <path d="M24 16V8M17.07 28 10.14 32M30.93 28l6.93 4"/>
+  </g>
+  <circle cx="24" cy="24" r="2.1" fill="currentColor"/>
+</svg>

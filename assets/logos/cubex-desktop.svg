@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="CubexDesktop">
+  <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M24 8 10.14 16v16L24 40l13.86-8V16Z"/>
+    <path d="M24 24 10.14 16M24 24l13.86-8M24 24v16"/>
+    <polyline points="15.3,24 17.9,27 15.3,30"/>
+    <path d="M28.33 31.5 33.53 28.5"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="19.6" cy="17.2" r="0.85"/>
+    <circle cx="24" cy="14.6" r="1.15"/>
+    <circle cx="28.4" cy="12" r="1.45"/>
+  </g>
+</svg>
