@@ -383,7 +383,8 @@ main{position:relative;z-index:1;background:var(--bg)}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
   .ticker{flex-wrap:wrap;-webkit-mask-image:none;mask-image:none}
-  .ticker-track{flex-wrap:wrap;justify-content:center}
+  .ticker-track{flex:1 1 100%;min-width:0;flex-wrap:wrap;justify-content:center}
+  .ticker-track li{white-space:normal}
   .ticker-track[aria-hidden]{display:none}
   .hero-glow{display:none}
 }

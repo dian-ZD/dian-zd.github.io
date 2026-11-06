@@ -132,7 +132,7 @@
     const heroInner = $('#heroInner');
     if (hero && heroInner) {
       gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } })
-        .to(heroInner, { yPercent: -18, autoAlpha: 0.1, ease: 'none' }, 0)
+        .to(heroInner, { yPercent: -18, scale: 0.9, autoAlpha: 0.1, transformOrigin: '50% 0%', ease: 'none' }, 0)
         .to($('.hero-beam', hero), { autoAlpha: 0, ease: 'none' }, 0);
     }
 
@@ -344,6 +344,8 @@
               data[k + 1] -= 100 * STRENGTH * m.vY * p * step;
             }
           }
+          m.vX *= decay; m.vY *= decay;
+          if (Math.abs(m.vX) < 1e-4 && Math.abs(m.vY) < 1e-4) m.vX = m.vY = 0;
         }
         gl.bindTexture(gl.TEXTURE_2D, dataTex);
         gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, N, N, gl.RGBA, gl.FLOAT, data);
