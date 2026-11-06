@@ -3,213 +3,162 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>加入我们 — HIGHLIGHT Studio</title>
+<title>加入我们 · HIGHLIGHT Studio</title>
 <meta name="description" content="HIGHLIGHT Studio 长期招募：编曲、动画制作、宣发、美术、剪辑、插件开发、模组开发、软件开发、用户界面设计。">
 <meta name="theme-color" content="#090a0c">
 <meta name="color-scheme" content="dark">
+<link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="./assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <link rel="preload" href="./assets/fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="./assets/fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="./styles.css">
-<script>
-  (function (d) {
-    var r = d.documentElement;
-    r.classList.add('js');
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('motion');
-    addEventListener('load', function () { setTimeout(function () { if (!window.HL) r.classList.remove('motion'); }, 300); });
-  })(document);
-</script>
-<script defer src="./assets/vendor/gsap.min.js"></script>
-<script defer src="./assets/vendor/ScrollTrigger.min.js"></script>
-<script defer src="./script.js"></script>
+<link rel="stylesheet" href="./css/site.css">
+<script>document.documentElement.classList.add(matchMedia('(prefers-reduced-motion: reduce)').matches ? 'still' : 'motion');</script>
+<script type="module" src="./js/main.js"></script>
 </head>
-<body>
+<body class="page-join">
 <a class="skip" href="#roles">跳到岗位列表</a>
 
-<!-- ============ 顶部导航：胶囊岛 ============ -->
-<header class="island-wrap">
-  <nav class="island" id="island" aria-label="主导航">
+<header class="island-wrap" id="nav">
+  <nav class="island" aria-label="主导航">
     <a class="island-brand" href="./index.html" aria-label="HIGHLIGHT STUDIO 首页">
-      <picture>
-        <source srcset="./assets/logo-nav.webp" type="image/webp">
-        <img class="island-logo" src="./assets/logo-nav.png" alt="HIGHLIGHT STUDIO" width="240" height="60">
-      </picture>
+      <picture><source srcset="./assets/logo-nav.webp" type="image/webp"><img class="island-logo" src="./assets/logo-nav.png" alt="HIGHLIGHT STUDIO" width="243" height="60"></picture>
     </a>
     <span class="island-links">
       <a href="./index.html#brand">品牌</a>
-      <a href="./index.html#feature">越权者</a>
-      <a href="./index.html#film">品牌片</a>
+      <a href="./index.html#cubex">CubeXDesktop</a>
       <a href="./index.html#products">产品</a>
+      <a href="./index.html#team">团队</a>
     </span>
-    <a class="island-join" href="#contact">联系方式 <span aria-hidden="true">↓</span></a>
-    <button class="island-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="menuPanel">
-      <i></i><i></i>
-    </button>
-    <i class="island-progress" id="progress" aria-hidden="true"></i>
+    <a class="island-join" href="./join.html" aria-current="page">加入我们 <span aria-hidden="true">↗</span></a>
+    <button class="island-toggle" id="menuBtn" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+    <i class="island-progress" id="navBar" aria-hidden="true"></i>
   </nav>
 </header>
 
-<div class="menu" id="menuPanel" aria-hidden="true">
-  <div class="menu-backdrop" data-close></div>
-  <div class="menu-panel" role="dialog" aria-modal="true" aria-label="站点菜单">
+<div class="menu" id="menu" hidden>
+  <div class="menu-mask" data-close></div>
+  <div class="menu-in" role="dialog" aria-modal="true" aria-label="站点菜单">
     <div class="menu-col">
-      <h4>Navigate</h4>
-      <a class="menu-link" href="./index.html"><i>01</i>回到首页</a>
-      <a class="menu-link" href="./index.html#feature"><i>02</i>越权者</a>
-      <a class="menu-link" href="./index.html#film"><i>03</i>品牌片</a>
-      <a class="menu-link" href="./index.html#products"><i>04</i>产品</a>
-      <a class="menu-link" href="./index.html#team"><i>05</i>团队</a>
-      <a class="menu-link" href="#contact"><i>06</i>联系方式</a>
+    <h2 class="menu-h">Navigate</h2>
+    <ol class="menu-list">
+      <li><a href="./index.html#brand"><small>00</small>品牌</a></li>
+      <li><a href="./index.html#cubex"><small>01</small>CubeXDesktop</a></li>
+      <li><a href="./index.html#products"><small>02</small>产品</a></li>
+      <li><a href="./index.html#team"><small>03</small>团队</a></li>
+      <li><a href="#contact"><small>04</small>联系方式</a></li>
+    </ol>
     </div>
     <div class="menu-side">
-      <h4>Studio</h4>
-      <p>一间做软件、服务器、影像与 Minecraft 动画的小工作室。有想法，随时来聊。</p>
+      <h2 class="menu-h">Studio</h2>
+      <p>求你了😭加入我们吧我们真的很缺人</p>
       <span class="mono">QQ 3877364376</span>
       <a class="mono" href="mailto:hsdianzd@our-mc.cn">hsdianzd@our-mc.cn</a>
     </div>
   </div>
 </div>
 
-<main id="top">
+<p class="chapter" id="chapter" aria-hidden="true"><b>JOIN</b><span>招募</span></p>
 
-<!-- ============ 序 · 招募令 ============ -->
-<section class="act act-hero jhero" id="recruit" aria-labelledby="jTitle">
-  <div class="hero-bg" aria-hidden="true">
-    <i class="hero-beam"></i>
-    <i class="hero-floor"></i>
-    <i class="hero-glow" id="heroGlow"></i>
-  </div>
-  <div class="wrap hero-inner" id="heroInner">
-    <p class="kicker hero-kicker"><b>招募令</b><span>HIGHLIGHT STUDIO · 长期开放</span><i class="kicker-line"></i></p>
-    <h1 class="hero-title small" id="jTitle">
-      <span class="ht ht-dim" aria-hidden="true"><span>下一幕，</span><span>缺一个<em>你</em>。</span></span>
-      <span class="ht ht-lit"><span>下一幕，</span><span>缺一个<em>你</em>。</span></span>
+<main class="page" id="top">
+
+<section class="hero hero-sm" id="recruit" data-chapter="JOIN" data-name="招募" aria-labelledby="jTitle">
+  <div class="hero-light" aria-hidden="true"><i></i></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow hero-eye"><b>JOIN</b><span>HIGHLIGHT STUDIO · 长期开放</span></p>
+    <h1 class="hero-title sm" id="jTitle">
+      <span class="line"><span>下一部作品，</span></span>
+      <span class="line"><span>缺一个<em>你</em>。</span></span>
     </h1>
     <div class="hero-foot">
-      <p class="hero-sub">软件、服务器、影像与 Minecraft 动画，几条线同时在推进。<br>下面是九个正在等人的位置；没列出来的本事，也欢迎带来。</p>
-      <a class="cue" href="#roles"><i aria-hidden="true"></i><span>向下，看看位置</span></a>
+      <p class="hero-lead">这是我唯一觉得ai写的不错的文案了。有没列出来的能力也欢迎你~</p>
+      <a class="arrow-link" href="#contact">联系方式<span aria-hidden="true">↓</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ 第一幕 · 九个位置 ============ -->
-<section class="act act-roles" id="roles" aria-labelledby="rolesTitle">
+<section class="sec roles-sec" id="roles" data-chapter="01" data-name="位置" aria-labelledby="rolesTitle">
   <div class="wrap">
-    <header class="act-head" data-rv>
-      <p class="kicker"><b>第一幕</b><span>位置 · ROLES</span><i class="kicker-line"></i></p>
-      <h2 class="act-title" id="rolesTitle"><span class="ln"><span>九个位置，</span></span><span class="ln"><span>总有一个写着你的名字。</span></span></h2>
-      <p class="act-lede">为爱发电的小工作室，不讲排场。看中哪一个，直接跳到最后找我们。</p>
+    <header class="sec-head" data-rv>
+      <p class="eyebrow"><b>01</b><span>九个方向</span></p>
+      <h2 class="sec-title" id="rolesTitle">随便挑一个顺手的就行，<br>剩下的<mark class="hl" data-hl>丢给ai或者别人</mark>。</h2>
+      <p class="sec-lead">为爱发电的小工作室。好吧其实就是穷b。</p>
     </header>
 
     <ol class="roles">
-      <li class="role" data-rv>
-        <span class="role-no">R / 01</span>
+      <li class="role" id="r01" data-rv>
+        <span class="role-no">01</span>
         <h3 class="role-name">编曲<small>MUSIC / SCORE</small></h3>
-        <div class="role-body">
-          <p>写动画或视频的配乐 / 写主题曲。</p>
-          <div class="tags"><span>作曲</span><span>编曲</span><span>混音</span></div>
-        </div>
+        <div class="role-body"><p>写动画或视频的配乐 / 写主题曲。</p>
+          <ul class="chips"><li>作曲</li><li>编曲</li><li>混音</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 02</span>
+      <li class="role" id="r02" data-rv>
+        <span class="role-no">02</span>
         <h3 class="role-name">动画制作<small>ANIMATION / 越权者</small></h3>
-        <div class="role-body">
-          <p>《越权者》的主力。使用BBS做动画但是不一定要会，可以现学。做角色动作，越流畅越好捏。</p>
-          <div class="tags"><span>Blockbench</span><span>镜头语言</span><span>表演</span></div>
-        </div>
+        <div class="role-body"><p>《越权者》的主力。使用BBS做动画但是不一定要会，可以现学。做角色动作，越流畅越好捏。</p>
+          <ul class="chips"><li>Blockbench</li><li>镜头语言</li><li>表演</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 03</span>
+      <li class="role" id="r03" data-rv>
+        <span class="role-no">03</span>
         <h3 class="role-name">宣发<small>MARKETING / DISTRIBUTION</small></h3>
-        <div class="role-body">
-          <p>让作品被更多人看到，让真正好的作品不被埋没。</p>
-          <div class="tags"><span>抖音</span><span>哔哩哔哩</span><span>选题</span><span>数据复盘</span></div>
-        </div>
+        <div class="role-body"><p>让作品被更多人看到，让真正好的作品不被埋没。</p>
+          <ul class="chips"><li>抖音</li><li>哔哩哔哩</li><li>选题</li><li>数据复盘</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 04</span>
+      <li class="role" id="r04" data-rv>
+        <span class="role-no">04</span>
         <h3 class="role-name">美术<small>ART / VISUAL DESIGN</small></h3>
-        <div class="role-body">
-          <p>贴图、概念图、封面、海报、界面的设计。好看就行😋</p>
-          <div class="tags"><span>像素</span><span>概念设计</span><span>海报</span><span>PS / AI / Figma</span></div>
-        </div>
+        <div class="role-body"><p>贴图、概念图、封面、海报、界面的设计。好看就行😋</p>
+          <ul class="chips"><li>像素</li><li>概念设计</li><li>海报</li><li>PS / AI / Figma</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 05</span>
+      <li class="role" id="r05" data-rv>
+        <span class="role-no">05</span>
         <h3 class="role-name">剪辑<small>EDITING / POST</small></h3>
-        <div class="role-body">
-          <p>把素材剪成视频、能选明白配乐、调色啥的没必要都会。</p>
-          <div class="tags"><span>剪辑</span><span>调色</span><span>声音设计</span></div>
-        </div>
+        <div class="role-body"><p>把素材剪成视频、能选明白配乐、调色啥的没必要都会。</p>
+          <ul class="chips"><li>剪辑</li><li>调色</li><li>声音设计</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 06</span>
+      <li class="role" id="r06" data-rv>
+        <span class="role-no">06</span>
         <h3 class="role-name">插件开发<small>DEV / SERVER PLUGIN</small></h3>
-        <div class="role-body">
-          <p>服务端的活：玩法插件开发，会用 AI 基本熟悉操作就可以，API 我们尽量提供捏。</p>
-          <div class="tags"><span>Java</span><span>Paper / Spigot</span><span>Gradle</span><span>工具链</span></div>
-        </div>
+        <div class="role-body"><p>服务端的活：玩法插件开发，会用 AI 基本熟悉操作就可以，API 我们尽量提供捏。</p>
+          <ul class="chips"><li>Java</li><li>Paper / Spigot</li><li>Gradle</li><li>工具链</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 07</span>
+      <li class="role" id="r07" data-rv>
+        <span class="role-no">07</span>
         <h3 class="role-name">模组开发<small>DEV / MOD</small></h3>
-        <div class="role-body">
-          <p>服务端客户端模组开发，会用 AI 基本熟悉操作就可以，API 我们尽量提供捏。</p>
-          <div class="tags"><span>Fabric / Forge</span><span>Mixin</span><span>Shader</span><span>渲染</span></div>
-        </div>
+        <div class="role-body"><p>服务端客户端模组开发，会用 AI 基本熟悉操作就可以，API 我们尽量提供捏。</p>
+          <ul class="chips"><li>Fabric / Forge</li><li>Mixin</li><li>Shader</li><li>渲染</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 08</span>
+      <li class="role" id="r08" data-rv>
+        <span class="role-no">08</span>
         <h3 class="role-name">软件开发<small>DEV / DESKTOP &amp; CLOUD</small></h3>
-        <div class="role-body">
-          <p>CubexDesktop 和 CubexTeam 还有其他神秘小软件的主战场。要让东西成为好用的工具，会用 AI 基本熟悉操作就可以，API 我们尽量提供捏。</p>
-          <div class="tags"><span>.NET 8+</span><span>C#</span><span>WPF / Avalonia</span><span>Web / Node</span><span>LLM 应用</span></div>
-        </div>
+        <div class="role-body"><p>CubexDesktop 和 CubexTeam 还有其他神秘小软件的主战场。要让东西成为好用的工具，会用 AI 基本熟悉操作就可以，API 我们尽量提供捏。</p>
+          <ul class="chips"><li>.NET 8+</li><li>C#</li><li>WPF / Avalonia</li><li>Web / Node</li><li>LLM 应用</li></ul></div>
       </li>
-
-      <li class="role" data-rv>
-        <span class="role-no">R / 09</span>
+      <li class="role" id="r09" data-rv>
+        <span class="role-no">09</span>
         <h3 class="role-name">用户界面设计<small>UI / UX DESIGN</small></h3>
-        <div class="role-body">
-          <p>判断一个页面到底怎么设计好看，这些是我们做一个软件该有的能力。把软件变成真正给人用的东西。</p>
-          <div class="tags"><span>Figma</span><span>设计系统</span><span>交互动效</span><span>可访问性</span></div>
-        </div>
+        <div class="role-body"><p>判断一个页面到底怎么设计好看，这些是我们做一个软件该有的能力。把软件变成真正给人用的东西。</p>
+          <ul class="chips"><li>Figma</li><li>设计系统</li><li>交互动效</li><li>可访问性</li></ul></div>
       </li>
     </ol>
-
-    <a class="act-next" href="#contact"><span>下一幕</span>联系方式 <i aria-hidden="true">↓</i></a>
+    <p class="bridge" data-rv>随便选哪个都行，可以身兼多职或者身兼半职（话说身兼半职怎么搞）</p>
   </div>
 </section>
 
-<!-- ============ 终幕 · 联系方式 ============ -->
-<section class="act act-contact" id="contact" aria-labelledby="contactTitle">
+<section class="sec contact-sec" id="contact" data-chapter="02" data-name="联系" aria-labelledby="contactTitle">
   <div class="wrap">
-    <header class="act-head" data-rv>
-      <p class="kicker"><b>终幕</b><span>联系 · CONTACT</span><i class="kicker-line"></i></p>
-      <h2 class="act-title" id="contactTitle"><span class="ln"><span>想好了，</span></span><span class="ln"><span>就来打个<em>招呼。</em></span></span></h2>
-      <p class="act-lede">说一声想做哪个方向就够了，剩下的我们聊着来。</p>
+    <header class="sec-head" data-rv>
+      <p class="eyebrow"><b>02</b><span>say hi~</span></p>
+      <h2 class="sec-title" id="contactTitle">然后说一声想做哪个方向，<br>然后<mark class="hl" data-hl>就行了</mark>。</h2>
     </header>
     <div class="contacts">
       <div class="contact" data-rv>
-        <b>QQ</b>
-        <span>3877364376</span>
-        <u>加好友时备注：来自官网 + 想做的方向</u>
+        <b>QQ</b><span>3877364376</span><u>加好友时备注：来自官网 + 想做的方向</u>
       </div>
       <a class="contact" data-rv href="mailto:hsdianzd@our-mc.cn">
-        <b>EMAIL</b>
-        <span>hsdianzd@our-mc.cn</span>
-        <u>写信也行，我们会回</u>
+        <b>EMAIL</b><span>hsdianzd@our-mc.cn</span><u>这年头谁还用邮箱啊</u>
       </a>
       <a class="contact" data-rv href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">
-        <b>MEDIA</b>
-        <span>HIGHLIGHT_Studio</span>
-        <u>哔哩哔哩 ↗</u>
+        <b>MEDIA</b><span>HIGHLIGHT_Studio</span><u>哔哩哔哩 ↗</u>
       </a>
     </div>
   </div>
@@ -217,40 +166,37 @@
 
 </main>
 
-<!-- ============ 页脚 + trae 式网格扭曲字标 ============ -->
+<!-- ============ 页脚 ============ -->
 <footer class="foot" id="foot">
   <div class="foot-body">
     <div class="wrap">
       <div class="foot-lead">
-        <p class="foot-say">散场了，<br><span>灯还亮着。</span></p>
-        <a class="foot-top" href="#top">回到招募令 <span aria-hidden="true">↑</span></a>
+        <p class="foot-say">就酱，没啥事了<br><span>最下面有一个互动动画还挺好玩</span></p>
+        <a class="foot-top" href="#top">回到开头<span aria-hidden="true">↑</span></a>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
-          <h5>Studio</h5>
+          <h2>Studio</h2>
           <p>HIGHLIGHT Studio</p>
-          <p>软件 · 服务器 · 影像 · Minecraft 动画</p>
           <p>以人文铸科技</p>
         </div>
         <div class="foot-col">
-          <h5>Products</h5>
+          <h2>Products</h2>
           <a href="./index.html#products">CubexDesktop</a>
           <a href="./index.html#products">CubexTeam</a>
-          <a href="./index.html#products">Cubex-Echo</a>
-          <a href="./index.html#products">Cubex Aura</a>
-          <a href="https://our-mc.cn" target="_blank" rel="noopener">OurMC 系列服务器 ↗</a>
-          <a href="./index.html#feature">越权者</a>
+          <a href="https://our-mc.cn" target="_blank" rel="noopener">OurMC 服务器 ↗</a>
+          <a href="./index.html#cubex">CubeXDesktop</a>
         </div>
         <div class="foot-col">
-          <h5>Media</h5>
+          <h2>友联</h2>
           <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">方块守护者 · 抖音</a>
-          <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">方块守护者 · 哔哩哔哩</a>
-          <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">点中点 · 哔哩哔哩</a>
+          <a href="https://logist1024.github.io/" target="_blank" rel="noopener">logist · 个人网站</a>
           <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">点中点 · GitHub</a>
-          <a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">HIGHLIGHT Studio · 哔哩哔哩</a>
+          <a href="https://www.lonely.land/" target="_blank" rel="noopener">lonely · 个人网站</a>
+          <a href="https://ai.onyxaxis.org/" target="_blank" rel="noopener">Axis ai · 公益中转站</a>
         </div>
         <div class="foot-col">
-          <h5>Join</h5>
+          <h2>Contact</h2>
           <a href="./index.html">返回首页 ↗</a>
           <a href="mailto:hsdianzd@our-mc.cn">hsdianzd@our-mc.cn</a>
           <p>QQ 3877364376</p>
@@ -264,10 +210,11 @@
     </div>
   </div>
 
+  <!-- trae.cn 式揭幕：占位层随文档流，字标层 position:fixed 贴底，被上方内容盖住，滚到底露出 -->
   <div class="distort" id="distort" style="--aspect:4.0359">
-    <div class="distort-stage" id="distortStage">
+    <div class="distort-stage">
       <div class="distort-canvas" id="distortCanvas">
-        <img class="distort-img" data-src="./assets/footer-mark.webp" alt="HIGHLIGHT STUDIO" width="1800" height="446" loading="lazy" decoding="async">
+        <img class="distort-img" src="./assets/footer-mark.webp" alt="HIGHLIGHT STUDIO" width="1800" height="446" loading="lazy" decoding="async">
       </div>
     </div>
   </div>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN" data-accent="matcha">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <title>CubexDesktop</title>
+    <script>
+      // 官网只展示深色：应用会把主题写到 html[data-theme] 上，这里随即抹掉，退回 :root 的深色 token
+      try { localStorage.setItem('cubex.onboarded', '1') } catch (e) {}
+      new MutationObserver(() => {
+        if (document.documentElement.hasAttribute('data-theme')) document.documentElement.removeAttribute('data-theme');
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    </script>
+    <script type="module" crossorigin src="./assets/index-jLh_U6a2.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/react-3lKGoLXY.js" />
+    <link rel="modulepreload" crossorigin href="./assets/zod-DDXHHInt.js" />
+    <link rel="stylesheet" crossorigin href="./assets/index-BJhnnkEE.css" />
+    <style>
+      /* 官网里的演示窗口：去掉「浏览器预览」这类状态标注，隐藏滚动条 */
+      html, body, #root { height: 100%; margin: 0; overflow: hidden; background: #191a1c; }
+      body { -webkit-user-select: none; user-select: none; cursor: default; }
+      .preview-badge, .composer-hint, .quick-actions, .col-resizer { display: none !important; }
+      ::-webkit-scrollbar { width: 0; height: 0; }
+      * { scrollbar-width: none; }
+      .ai-ascii-field { pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div style="height:100%;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;color:#8a8f98">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:sk-spin 1.2s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+      </div>
+      <style>@keyframes sk-spin{to{transform:rotate(360deg)}}</style>
+    </div>
+  </body>
+</html>
