@@ -2,519 +2,470 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>HIGHLIGHT Studio — 以人文铸科技</title>
-<meta name="description" content="HIGHLIGHT Studio：软件、Minecraft 服务器、媒体与 Minecraft 动画。让科技归还于人，真正为人所用。">
+<meta name="description" content="HIGHLIGHT Studio：一间做软件、Minecraft 服务器、影像与 Minecraft 动画的小工作室。以人文铸科技。">
+<meta name="theme-color" content="#090a0c">
+<meta name="color-scheme" content="dark">
+<link rel="preload" href="./assets/fonts/BricolageGrotesque-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="./styles.css">
+<script>
+  (function (d) {
+    var r = d.documentElement;
+    r.classList.add('js');
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('motion');
+    addEventListener('load', function () { setTimeout(function () { if (!window.HL) r.classList.remove('motion'); }, 300); });
+  })(document);
+</script>
+<script defer src="./assets/vendor/gsap.min.js"></script>
+<script defer src="./assets/vendor/ScrollTrigger.min.js"></script>
+<script defer src="./script.js"></script>
 </head>
 <body>
+<a class="skip" href="#brand">跳到正文</a>
 
-<div class="cursor" aria-hidden="true"><i></i><b></b><u></u></div>
-
-<div class="island-wrap">
-  <div class="island" id="island">
-    <a class="island-brand" href="./index.html" aria-label="HIGHLIGHT STUDIO">
-      <img class="island-logo" src="./assets/logo-wordmark-light.png" alt="HIGHLIGHT STUDIO">
+<!-- ============ 顶部导航：胶囊岛 ============ -->
+<header class="island-wrap">
+  <nav class="island" id="island" aria-label="主导航">
+    <a class="island-brand" href="./index.html" aria-label="HIGHLIGHT STUDIO 首页">
+      <picture>
+        <source srcset="./assets/logo-nav.webp" type="image/webp">
+        <img class="island-logo" src="./assets/logo-nav.png" alt="HIGHLIGHT STUDIO" width="240" height="60">
+      </picture>
     </a>
-    <span class="island-links" id="islandLinks">
-      <a data-scroll="#method">品牌</a>
-      <a data-scroll="#feature">越权者</a>
-      <a data-scroll="#film">品牌片</a>
-      <a data-scroll="#products">产品</a>
-      <a data-scroll="#team">团队</a>
+    <span class="island-links">
+      <a href="#brand" data-nav="brand">品牌</a>
+      <a href="#feature" data-nav="feature">越权者</a>
+      <a href="#film" data-nav="film">品牌片</a>
+      <a href="#products" data-nav="products">产品</a>
+      <a href="#team" data-nav="team">团队</a>
     </span>
-    <a class="island-join" href="./join.html">加入我们 <span>↗</span></a>
-    <button class="island-toggle" id="islandToggle" aria-label="打开菜单" aria-expanded="false">
-      <svg viewBox="0 0 18 18" aria-hidden="true">
-        <line id="barA" x1="1" y1="6" x2="17" y2="6"></line>
-        <line id="barB" x1="1" y1="12" x2="17" y2="12"></line>
-      </svg>
+    <a class="island-join" href="./join.html">加入我们 <span aria-hidden="true">↗</span></a>
+    <button class="island-toggle" id="menuToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="menuPanel">
+      <i></i><i></i>
     </button>
-    <i class="island-progress" id="islandProgress" aria-hidden="true"></i>
+    <i class="island-progress" id="progress" aria-hidden="true"></i>
+  </nav>
+</header>
+
+<div class="menu" id="menuPanel" aria-hidden="true">
+  <div class="menu-backdrop" data-close></div>
+  <div class="menu-panel" role="dialog" aria-modal="true" aria-label="站点菜单">
+    <div class="menu-col">
+      <h4>Navigate</h4>
+      <a class="menu-link" href="#brand"><i>01</i>品牌</a>
+      <a class="menu-link" href="#feature"><i>02</i>越权者</a>
+      <a class="menu-link" href="#film"><i>03</i>品牌片</a>
+      <a class="menu-link" href="#products"><i>04</i>产品</a>
+      <a class="menu-link" href="#team"><i>05</i>团队</a>
+      <a class="menu-link" href="./join.html"><i>06</i>加入我们</a>
+    </div>
+    <div class="menu-side">
+      <h4>Studio</h4>
+      <p>一间做软件、服务器、影像与 Minecraft 动画的小工作室。有想法，随时来聊。</p>
+      <span class="mono">QQ 3877364376</span>
+      <a class="mono" href="mailto:hsdianzd@our-mc.cn">hsdianzd@our-mc.cn</a>
+    </div>
   </div>
 </div>
 
-<div class="menu-backdrop" id="menuBackdrop"></div>
-<div class="menu-panel" id="menuPanel">
-  <div class="menu-col">
-    <h4>Navigate</h4>
-    <a class="menu-link" data-scroll="#method"><i>01</i>品牌内核</a>
-    <a class="menu-link" data-scroll="#feature"><i>02</i>越权者</a>
-    <a class="menu-link" data-scroll="#film"><i>03</i>品牌片</a>
-    <a class="menu-link" data-scroll="#products"><i>04</i>产品</a>
-    <a class="menu-link" data-scroll="#team"><i>05</i>团队介绍</a>
-    <a class="menu-link" href="./join.html"><i>06</i>加入我们</a>
-  </div>
-  <div class="menu-side">
-    <h4>Studio</h4>
-    <p>我们做软件、Minecraft 服务器、做媒体、Minecraft 动画。做出人真正爱看的片子、做出人真正能用的软件</p>
-    <span class="hl-mono">QQ 3877364376</span>
-    <span class="hl-mono">hsdianzd@our-mc.cn</span>
-  </div>
-</div>
+<!-- 右侧幕次指示 -->
+<ol class="rail" aria-hidden="true">
+  <li data-rail="brand"><b>序</b><span>开灯</span></li>
+  <li data-rail="feature"><b>I</b><span>越界</span></li>
+  <li data-rail="film"><b>II</b><span>放映</span></li>
+  <li data-rail="products"><b>III</b><span>作品</span></li>
+  <li data-rail="team"><b>IV</b><span>幕后</span></li>
+  <li data-rail="join"><b>终</b><span>留白</span></li>
+</ol>
 
 <main id="top">
 
-<section class="hero">
-  <div class="hero-canvas" aria-hidden="true"><canvas id="heroCanvas"></canvas></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="eyebrow">HIGHLIGHT STUDIO — 软件 / 服务器 / 媒体 / 动画</span>
-      <span class="section-index">以人文铸科技</span>
-    </div>
-    <h1 class="hero-h1">
-      <span class="ln"><span>以人文</span></span>
-      <span class="ln"><span>铸<em>科技</em>。</span></span>
+<!-- ============ 序章 · 开灯 ============ -->
+<section class="act act-hero" id="brand" aria-labelledby="heroTitle">
+  <div class="hero-bg" aria-hidden="true">
+    <i class="hero-beam"></i>
+    <i class="hero-floor"></i>
+    <i class="hero-glow" id="heroGlow"></i>
+  </div>
+  <div class="wrap hero-inner" id="heroInner">
+    <p class="kicker hero-kicker"><b>序章</b><span>HIGHLIGHT STUDIO</span><i class="kicker-line"></i></p>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="ht ht-dim" aria-hidden="true"><span>以人文</span><span>铸<em>科技</em></span></span>
+      <span class="ht ht-lit"><span>以人文</span><span>铸<em>科技</em></span></span>
     </h1>
     <div class="hero-foot">
-      <p class="hero-lede">技术是手段，让人会用是目的。<b><span class="underlined">让科技归还于人，真正为人所用。</span></b></p>
-      <div class="scroll-hint"><i></i><span>SCROLL</span></div>
+      <p class="hero-sub">一间做软件、服务器、影像与 Minecraft 动画的小工作室。<br>灯已经亮了——接下来，一幕一幕讲给你听。</p>
+      <a class="cue" href="#feature"><i aria-hidden="true"></i><span>向下，进入第一幕</span></a>
     </div>
   </div>
 </section>
 
-<section class="htext" aria-label="品牌标识">
-  <div class="htext-track" id="htextTrack">
-    <div class="htext-item">
-      <span class="htext-word solid">HIGHLIGHT</span>
-      <span class="htext-dot"></span>
-      <span class="htext-word">STUDIO</span>
-      <img class="htext-mark" src="./assets/logos/yqz-white.png" alt="越权者">
-      <span class="htext-word red">以人文铸科技</span>
-      <span class="htext-dot"></span>
-      <span class="htext-word serif">让科技归还于人</span>
-      <span class="htext-dot"></span>
-    </div>
-  </div>
-</section>
+<!-- ============ 第一幕 · 越界（越权者） ============ -->
+<section class="act act-feature" id="feature" aria-labelledby="featTitle">
+  <div class="wrap">
+    <header class="act-head" data-rv>
+      <p class="kicker"><b>第一幕</b><span>越界 · OVERRIDE</span><i class="kicker-line"></i></p>
+      <h2 class="act-title" id="featTitle"><span class="ln"><span>第一束光，</span></span><span class="ln"><span>打在一个正在失控的世界。</span></span></h2>
+    </header>
 
-<section class="wrap" id="method">
-  <div class="sec-head">
-    <span class="eyebrow">CORE</span>
-    <span class="section-index">01 / 品牌内核</span>
-  </div>
-  <div class="grid3">
-    <span class="section-index">内核</span>
-    <div>
-      <h2 class="mf-h2">我们不生产高光，<br><span>我们把灯打在它身上。</span></h2>
-      <p class="mf-words" id="mfWords">当名词是高光，是一个视频里最值得留下的那几秒，一个软件里让人分享给朋友的那一处。</p>
-      <blockquote class="quote breath">当动词是去点亮，是去把已经在那里却没人看见的好东西标记出来。<cite>HIGHLIGHT 这个名字</cite></blockquote>
-    </div>
-    <div class="mf-note">
-      <p class="note"><b>高光不是全部，但只有它会被记住。</b>很多技术不是不够好，是没人替它说人话。</p>
-      <p class="note"><b>为什么是「铸」，而非「造」。</b>造是从无到有，而铸是把已有的东西，在高温下重新炼制——技术是矿，而人是模具。</p>
-      <p class="note"><b>写代码之前先问一句。</b>「谁在什么状态下会用它」「它好用吗」。让技术在到达人之前，先学会与人交流。</p>
-    </div>
-  </div>
-</section>
-
-<section class="feat wrap" id="feature">
-  <div class="sec-head">
-    <span class="eyebrow">FEATURED</span>
-    <span class="section-index">02 / 越权者</span>
-  </div>
-  <div class="grid3">
-    <span class="section-index">系列短片</span>
-    <div>
-      <span class="feat-badge"><i></i>Minecraft 动画短片系列</span>
-      <h2 class="mf-h2" style="margin-top:22px">越权者</h2>
-      <p class="measure" style="margin-top:18px">
-腐竹毫无征兆地消失，去向无人知晓。
+    <div class="feat-grid">
+      <div class="feat-copy" data-rv>
+        <span class="badge"><i></i>Minecraft 动画短片系列</span>
+        <h3 class="feat-name">越权者</h3>
+        <p class="feat-story">腐竹毫无征兆地消失，去向无人知晓。
 代表最高权限的权限级命令方块破碎分布在世界各地，权限核心掌控世界规则的能力日益削弱，世界规则开始崩坏。
 部分玩家获得逸散的权限从而"觉醒"，获得了OP的力量...</p>
+        <p class="feat-note"><b>OVERRIDE / 系列</b>HIGHLIGHT Studio 出品的 Minecraft 动画短片系列。</p>
+        <a class="link" href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">哔哩哔哩 · HIGHLIGHT Studio <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="feat-stage" id="featStage">
+        <span class="feat-corner tl" aria-hidden="true"></span>
+        <span class="feat-corner br" aria-hidden="true"></span>
+        <span class="feat-hud" aria-hidden="true"><b>REC</b> OVERRIDE / EP.—</span>
+        <div class="feat-logo">
+          <picture><source srcset="./assets/logos/yqz-white.webp" type="image/webp"><img class="l-base" src="./assets/logos/yqz-white.png" alt="越权者" width="974" height="485" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="./assets/logos/yqz-oxblood.webp" type="image/webp"><img class="l-ox" src="./assets/logos/yqz-oxblood.png" alt="" width="974" height="485" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="./assets/logos/yqz-red.webp" type="image/webp"><img class="l-red" src="./assets/logos/yqz-red.png" alt="" width="974" height="485" loading="lazy" decoding="async"></picture>
+        </div>
+        <i class="feat-scan" id="featScan" aria-hidden="true"></i>
+      </div>
     </div>
-    <div class="mf-note">
-      <p class="note"><b>OVERRIDE / 系列</b>HIGHLIGHT Studio 出品的 Minecraft 动画短片系列。</p>
-      <div class="pm-links" style="margin-top:16px">
-        <a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">哔哩哔哩 · HIGHLIGHT Studio ↗</a>
+
+    <dl class="meta" data-rv>
+      <div><dt>SERIES</dt><dd>越权者 / OVERRIDE</dd></div>
+      <div><dt>FORMAT</dt><dd>Minecraft 动画短片</dd></div>
+      <div><dt>STUDIO</dt><dd>HIGHLIGHT Studio</dd></div>
+      <div><dt>WATCH</dt><dd>哔哩哔哩</dd></div>
+    </dl>
+
+    <a class="act-next" href="#film"><span>下一幕</span>放映 <i aria-hidden="true">↓</i></a>
+  </div>
+</section>
+
+<!-- ============ 第二幕 · 放映（品牌片） ============ -->
+<section class="act act-film" id="film" aria-labelledby="filmTitle">
+  <div class="wrap">
+    <header class="act-head" data-rv>
+      <p class="kicker"><b>第二幕</b><span>放映 · BRAND FILM</span><i class="kicker-line"></i></p>
+      <h2 class="act-title" id="filmTitle"><span class="ln"><span>放映机已经就位，</span></span><span class="ln"><span>胶片还在路上。</span></span></h2>
+      <p class="act-lede">这一幕留给我们的品牌片。它还在剪辑台上——等最后一帧完成，就在这块幕布上首映。</p>
+    </header>
+  </div>
+
+  <div class="film-pin" id="filmPin">
+    <div class="wrap">
+      <div class="screen" id="screen" role="status" aria-label="品牌片制作中">
+        <div class="leader" id="leader" aria-hidden="true">
+          <svg class="leader-ring" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="92"></circle>
+            <circle cx="100" cy="100" r="74"></circle>
+            <line x1="100" y1="0" x2="100" y2="200"></line>
+            <line x1="0" y1="100" x2="200" y2="100"></line>
+          </svg>
+          <i class="leader-sweep" id="leaderSweep"></i>
+          <b class="leader-num" id="leaderNum">3</b>
+        </div>
+        <div class="slate" id="slate">
+          <span class="mono">BRAND FILM / IN PRODUCTION</span>
+          <strong>片子还在剪。</strong>
+          <i>MAY BE COMING SOON?</i>
+        </div>
+        <div class="screen-hud" aria-hidden="true">
+          <span><b class="dot"></b>STANDBY</span>
+          <span id="timecode">00:00:00:00</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="feat-stage" id="featStage">
-    <span class="feat-corner tl" aria-hidden="true"></span>
-    <span class="feat-corner br" aria-hidden="true"></span>
-    <div class="feat-logo-stack">
-      <img class="l-base" src="./assets/logos/yqz-white.png" alt="越权者">
-      <img class="l-ox" src="./assets/logos/yqz-oxblood.png" alt="" aria-hidden="true">
-      <img class="l-red" src="./assets/logos/yqz-red.png" alt="" aria-hidden="true">
-    </div>
-    <div class="feat-scan" id="featScan"></div>
-  </div>
-  <div class="feat-meta">
-    <div><b>SERIES</b><span>越权者 / OVERRIDE</span></div>
-    <div><b>FORMAT</b><span>Minecraft 动画短片</span></div>
-    <div><b>STUDIO</b><span>HIGHLIGHT Studio</span></div>
-    <div><b>WATCH</b><span>哔哩哔哩</span></div>
+
+  <div class="wrap">
+    <a class="act-next" href="#products"><span>下一幕</span>作品 <i aria-hidden="true">↓</i></a>
   </div>
 </section>
 
-<section class="film wrap" id="film">
-  <div class="sec-head">
-    <span class="eyebrow">BRAND FILM</span>
-    <span class="section-index">03 / 品牌文化片</span>
-  </div>
-  <div class="film-head">
-    <div>
-      <h2 style="margin-top:0">品牌片</h2>
-    </div>
-  </div>
+<!-- ============ 第三幕 · 作品（全部产品，不分类） ============ -->
+<section class="act act-works" id="products" aria-labelledby="worksTitle">
+  <div class="wrap">
+    <header class="act-head" data-rv>
+      <p class="kicker"><b>第三幕</b><span>作品 · WORKS</span><i class="kicker-line"></i></p>
+      <h2 class="act-title" id="worksTitle"><span class="ln"><span>灯光转过来，</span></span><span class="ln"><span>照向我们亲手做的东西。</span></span></h2>
+      <p class="act-lede">讲故事之外，我们也写软件、开服务器、经营自己的频道。它们不分门类，摆在同一张桌上。</p>
+    </header>
 
-  <div class="film-pending" role="status" aria-label="品牌片暂未制作完成">
-    <span>BRAND FILM / IN PRODUCTION</span>
-    <strong>肥肠抱歉，视频不见噜</strong>
-    <i>MAY BE COMING SOON?</i>
-  </div>
-</section>
+    <div class="works" id="works">
 
-<section class="pm wrap" id="products">
-  <div class="sec-head">
-    <span class="eyebrow">PRODUCTS</span>
-    <span class="section-index">04 / 产品</span>
-  </div>
-  <div class="grid3">
-    <span class="section-index">同步进行四条线</span>
-    <div>
-      <h2 class="mf-h2">软件、服务器、<br><span>媒体、动画。</span></h2>
-      <p class="measure" style="margin-top:18px">做出一批让人不想关掉的软件，和一批让人愿意看第二遍的片子。</p>
-    </div>
-    <div class="mf-note">
-      <p class="note"><b>关于「暂未上线」</b>纯 AI 屎山，不要问为什么，问就是还没做到给人用的程度。</p>
-    </div>
-  </div>
-
-  <div class="pm-group">
-    <div class="pm-group-head"><b>一</b><h3>AI 工具</h3><small>SOFTWARE &amp; MODELS</small></div>
-    <div class="pm-list">
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>CubexDesktop</h4>
-          <span class="pm-en">AGENT WORKSTATION / 智能体协同工作站</span>
-          <p>智能体协同工作站。一站式ai生活+工作解决系统，业界首创work工作流</p>
-          <div class="pm-tags"><span>工作流</span><span>code</span><span>work</span></div>
+      <article class="work w6" data-rv>
+        <div class="work-top">
+          <span class="work-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M24 8 10.14 16v16L24 40l13.86-8V16Z"/><path d="M24 24 10.14 16M24 24l13.86-8M24 24v16"/><polyline points="15.3,24 17.9,27 15.3,30"/><path d="M28.33 31.5 33.53 28.5"/></g><g fill="currentColor"><circle cx="19.6" cy="17.2" r=".85"/><circle cx="24" cy="14.6" r="1.15"/><circle cx="28.4" cy="12" r="1.45"/></g></svg></span>
+          <span class="pill">已开源</span>
         </div>
-        <div class="pm-side">
-          <span class="pill soon">● 已开源</span>
-        </div>
+        <h3>CubexDesktop</h3>
+        <span class="work-en">AGENT WORKSTATION / 智能体协同工作站</span>
+        <p>智能体协同工作站。一站式ai生活+工作解决系统，业界首创work工作流</p>
+        <div class="tags"><span>工作流</span><span>code</span><span>work</span></div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>CubexTeam</h4>
-          <span class="pm-en">TEAM WORKSPACE / 一站式团队协作工作台</span>
-          <p>集成 AI 助手 Echo、CodeForge 代码仓库（分支、PR、Issue、流水线）、在线文档协同编辑、资源库（上传、审核、分享）、即时通讯与语音通话、AI 模块，支持权限管理与公网安全访问。</p>
-          <div class="pm-tags"><span>CodeForge</span><span>文档协同</span><span>资源库</span><span>通讯与语音</span><span>权限管理</span></div>
+      <article class="work w6" data-rv>
+        <div class="work-top">
+          <span class="work-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M24 9.28 12.36 16 24 22.72 35.64 16Z"/><path d="M11.25 17.92 22.89 24.64v13.44L11.25 31.36Z"/><path d="M25.11 24.64 36.75 17.92v13.44L25.11 38.08Z"/></g><g fill="currentColor"><circle cx="24" cy="16" r="1.5"/><circle cx="17.07" cy="28" r="1.5"/></g><circle cx="30.93" cy="28" r="2.4" fill="#ff3038"/></svg></span>
+          <span class="pill">内测中</span>
         </div>
-        <div class="pm-side">
-          <span class="pill soon">● 内测中</span>
-        </div>
+        <h3>CubexTeam</h3>
+        <span class="work-en">TEAM WORKSPACE / 一站式团队协作工作台</span>
+        <p>集成 AI 助手 Echo、CodeForge 代码仓库（分支、PR、Issue、流水线）、在线文档协同编辑、资源库（上传、审核、分享）、即时通讯与语音通话、AI 模块，支持权限管理与公网安全访问。</p>
+        <div class="tags"><span>CodeForge</span><span>文档协同</span><span>资源库</span><span>通讯与语音</span><span>权限管理</span></div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon echo"><img src="./assets/logos/cubex-echo.svg" alt=""></div>
-        <div>
-          <h4>Cubex-Echo</h4>
-          <span class="pm-en">AI ASSISTANT / CubexTeam 的智能 AI 助手</span>
-          <p>支持工具调用与编程模式，新项目脚手架、功能开发、修 Bug、代码审查等技能按需自选；具备长任务能力，步骤清单逐步推进、进度实时可视；可跨资源库、文档库、CodeForge 智能搜索，命中结果生成可点击直达卡片并高亮定位；还能联网搜索、创建编辑文档、发送消息，模糊描述也能精准找到目标。</p>
-          <div class="pm-tags"><span>工具调用</span><span>编程模式</span><span>长任务</span><span>跨库搜索</span><span>联网搜索</span></div>
+      <article class="work w4" data-rv>
+        <div class="work-top">
+          <span class="work-icon echo" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="30" cy="34" r="26" fill="#2f80ff" opacity=".10"/><circle cx="30" cy="34" r="20.5" fill="none" stroke="#e6eaf1" stroke-width="3"/><circle cx="30" cy="34" r="17.5" fill="#2f80ff"/><rect x="24.6" y="26.5" width="4.4" height="15" rx="2.2" fill="#fff"/><rect x="31.6" y="26.5" width="4.4" height="15" rx="2.2" fill="#fff"/><circle cx="50" cy="15" r="5" fill="#34d058"/></svg></span>
+          <span class="pill">内测中</span>
         </div>
-        <div class="pm-side">
-          <span class="pill soon">● 内测中</span>
-        </div>
+        <h3>Cubex-Echo</h3>
+        <span class="work-en">AI ASSISTANT / CubexTeam 的智能 AI 助手</span>
+        <p>支持工具调用与编程模式，新项目脚手架、功能开发、修 Bug、代码审查等技能按需自选；具备长任务能力，步骤清单逐步推进、进度实时可视；可跨资源库、文档库、CodeForge 智能搜索，命中结果生成可点击直达卡片并高亮定位；还能联网搜索、创建编辑文档、发送消息，模糊描述也能精准找到目标。</p>
+        <div class="tags"><span>工具调用</span><span>编程模式</span><span>长任务</span><span>跨库搜索</span><span>联网搜索</span></div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>Cubex Aura</h4>
-          <span class="pm-en">SMALL PARAM QWEN3.8 27B</span>
-          <p>QWEN 3.8 27B后训练专精代码，与其他小模型协作达到更高水平。</p>
-          <div class="pm-tags"><span>小参数</span><span>27B</span><span>QWEN3.8</span><span>后训练</span></div>
+      <article class="work w4" data-rv>
+        <div class="work-top">
+          <span class="work-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M24 8 10.14 16v16L24 40l13.86-8V16Z"/><path d="M24 16 17.07 20v8L24 32l6.93-4v-8Z"/><path d="M24 16V8M17.07 28 10.14 32M30.93 28l6.93 4"/></g><circle cx="24" cy="24" r="2.1" fill="currentColor"/></svg></span>
+          <span class="pill dim">规划</span>
         </div>
-        <div class="pm-side">
-          <span class="pill soon">● 规划</span>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  <div class="pm-group">
-    <div class="pm-group-head"><b>二</b><h3>OurMC 系列服务器</h3><small>MINECRAFT SERVERS</small></div>
-    <div class="pm-list">
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>OurMC 插件生存服务器</h4>
-          <span class="pm-en">SURVIVAL / 插件服</span>
-          <p>范RPG 地缘政治模拟服务器</p>
-          <div class="pm-tags"><span>生存</span><span>RPG</span><span>地缘政治模拟</span></div>
-        </div>
-        <div class="pm-side">
-          <span class="pill live">● 原版直连</span>
-          <div class="pm-links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn ↗</a></div>
-        </div>
+        <h3>Cubex Aura</h3>
+        <span class="work-en">SMALL PARAM QWEN3.8 27B</span>
+        <p>QWEN 3.8 27B后训练专精代码，与其他小模型协作达到更高水平。</p>
+        <div class="tags"><span>小参数</span><span>27B</span><span>QWEN3.8</span><span>后训练</span></div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>Gelysium 坤舆乐境</h4>
-          <span class="pm-en">CIVILIZATION SIM / 文明模拟服</span>
-          <p>1:500 高精度真实地球投影，山川海洋还原。搭载自研 Geotowny 模组，打破传统领地限制：自主建立聚落通商、组建联盟、策略经营。集成农夫乐事、科技工业、生态生物及千款家具，熔炉升级与进阶钓鱼。兼顾城建养老与硬核策略，原版客户端即可进入</p>
-          <div class="pm-tags"><span>1:500 真实地球</span><span>Geotowny</span><span>聚落通商</span><span>联盟</span><span>原版直连</span></div>
+      <article class="work w4" data-rv>
+        <div class="work-top">
+          <span class="work-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M24 9 37 16.5 24 24 11 16.5Z"/><path d="M11 16.5V31.5L24 39V24M37 16.5V31.5L24 39"/></g><path d="M11 16.5 24 24 37 16.5V21L24 28.5 11 21Z" fill="#66d19e" opacity=".55"/></svg></span>
+          <span class="pill live">原版直连</span>
         </div>
-        <div class="pm-side">
-          <span class="pill soon">● 已关服</span>
-          <div class="pm-links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn ↗</a></div>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  <div class="pm-group">
-    <div class="pm-group-head"><b>三</b><h3>自媒体账号</h3><small>MEDIA</small></div>
-    <div class="pm-list">
-      <article class="pm-card">
-        <div class="pm-icon face"><img src="./assets/avatars/fangkuai.jpg" alt=""></div>
-        <div>
-          <h4>方块守护者</h4>
-          <span class="pm-en">抖音 · 哔哩哔哩</span>
-          <p>视频剪辑、视频制作、动画制作。</p>
-          <div class="pm-tags"><span>剪辑</span><span>视频制作</span><span>动画制作</span></div>
-        </div>
-        <div class="pm-side">
-          <span class="pill live">● 更新中</span>
-          <div class="pm-links">
-            <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">抖音 ↗</a>
-            <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
-          </div>
-        </div>
+        <h3>OurMC 插件生存服务器</h3>
+        <span class="work-en">SURVIVAL / 插件服</span>
+        <p>范RPG 地缘政治模拟服务器</p>
+        <div class="tags"><span>生存</span><span>RPG</span><span>地缘政治模拟</span></div>
+        <div class="links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn <span aria-hidden="true">↗</span></a></div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon face"><img src="./assets/avatars/dianzd.jpg" alt=""></div>
-        <div>
-          <h4>点中点</h4>
-          <span class="pm-en">GitHub · 哔哩哔哩</span>
-          <p>负责软件编写，也参与视频制作。</p>
-          <div class="pm-tags"><span>软件</span><span>服务器</span><span>CubexTeaM</span></div>
+      <article class="work w6" data-rv>
+        <div class="work-top">
+          <span class="work-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="15"/><ellipse cx="24" cy="24" rx="6.5" ry="15"/><path d="M9 24h30M11.5 16h25M11.5 32h25"/></g></svg></span>
+          <span class="pill dim">已关服</span>
         </div>
-        <div class="pm-side">
-          <span class="pill live">● 更新中</span>
-          <div class="pm-links">
-            <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
-          </div>
-        </div>
+        <h3>Gelysium 坤舆乐境</h3>
+        <span class="work-en">CIVILIZATION SIM / 文明模拟服</span>
+        <p>1:500 高精度真实地球投影，山川海洋还原。搭载自研 Geotowny 模组，打破传统领地限制：自主建立聚落通商、组建联盟、策略经营。集成农夫乐事、科技工业、生态生物及千款家具，熔炉升级与进阶钓鱼。兼顾城建养老与硬核策略，原版客户端即可进入</p>
+        <div class="tags"><span>1:500 真实地球</span><span>Geotowny</span><span>聚落通商</span><span>联盟</span><span>原版直连</span></div>
+        <div class="links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn <span aria-hidden="true">↗</span></a></div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>HIGHLIGHT Studio</h4>
-          <span class="pm-en">哔哩哔哩</span>
-          <p>工作室自己的账号。</p>
-          <div class="pm-tags"><span>工作室</span></div>
+      <article class="work w6" data-rv>
+        <div class="work-top">
+          <span class="work-icon wide" aria-hidden="true"><picture><source srcset="./assets/logos/yqz-white.webp" type="image/webp"><img src="./assets/logos/yqz-white.png" alt="" width="974" height="485" loading="lazy" decoding="async"></picture></span>
+          <span class="pill">制作中</span>
         </div>
-        <div class="pm-side">
-          <span class="pill live">● 正在更新</span>
-          <div class="pm-links"><a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">哔哩哔哩 ↗</a></div>
-        </div>
-      </article>
-    </div>
-  </div>
-
-  <div class="pm-group">
-    <div class="pm-group-head"><b>四</b><h3>动画</h3><small>ANIMATION</small></div>
-    <div class="pm-list">
-      <article class="pm-card">
-        <div class="pm-icon"><img src="./assets/logos/yqz-white.png" alt="" style="width:36px;height:auto"></div>
-        <div>
-          <h4>越权者</h4>
-          <span class="pm-en">OVERRIDE / 系列 MC 动画短片</span>
-          <p>腐竹毫无征兆地消失，去向无人知晓。
+        <h3>越权者</h3>
+        <span class="work-en">OVERRIDE / 系列 MC 动画短片</span>
+        <p>腐竹毫无征兆地消失，去向无人知晓。
 代表最高权限的权限级命令方块破碎分布在世界各地，权限核心掌控世界规则的能力日益削弱，世界规则开始崩坏。
 部分玩家获得逸散的权限从而"觉醒"，获得了OP的力量。</p>
-          <div class="pm-tags"><span>系列短片</span><span>Minecraft 动画</span></div>
+        <div class="tags"><span>系列短片</span><span>Minecraft 动画</span></div>
+        <div class="links"><a href="#feature">看这个系列 <span aria-hidden="true">↑</span></a></div>
+      </article>
+
+      <article class="work w4" data-rv>
+        <div class="work-top">
+          <span class="work-icon face" aria-hidden="true"><img src="./assets/avatars/fangkuai.webp" alt="" width="320" height="320" loading="lazy" decoding="async"></span>
+          <span class="pill live">更新中</span>
         </div>
-        <div class="pm-side">
-          <span class="pill soon">● 制作中</span>
-          <div class="pm-links"><a data-scroll="#feature">看这个系列 ↑</a></div>
+        <h3>方块守护者</h3>
+        <span class="work-en">抖音 · 哔哩哔哩</span>
+        <p>视频剪辑、视频制作、动画制作。</p>
+        <div class="tags"><span>剪辑</span><span>视频制作</span><span>动画制作</span></div>
+        <div class="links">
+          <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">抖音 <span aria-hidden="true">↗</span></a>
+          <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">哔哩哔哩 <span aria-hidden="true">↗</span></a>
         </div>
       </article>
+
+      <article class="work w4" data-rv>
+        <div class="work-top">
+          <span class="work-icon face" aria-hidden="true"><img src="./assets/avatars/dianzd.webp" alt="" width="320" height="320" loading="lazy" decoding="async"></span>
+          <span class="pill live">更新中</span>
+        </div>
+        <h3>点中点</h3>
+        <span class="work-en">GitHub · 哔哩哔哩</span>
+        <p>负责软件编写，也参与视频制作。</p>
+        <div class="tags"><span>软件</span><span>服务器</span><span>CubexTeaM</span></div>
+        <div class="links">
+          <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">哔哩哔哩 <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="work w4" data-rv>
+        <div class="work-top">
+          <span class="work-icon mark" aria-hidden="true">H</span>
+          <span class="pill live">正在更新</span>
+        </div>
+        <h3>HIGHLIGHT Studio</h3>
+        <span class="work-en">哔哩哔哩</span>
+        <p>工作室自己的账号。</p>
+        <div class="tags"><span>工作室</span></div>
+        <div class="links"><a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">哔哩哔哩 <span aria-hidden="true">↗</span></a></div>
+      </article>
+
     </div>
+
+    <a class="act-next" href="#team"><span>下一幕</span>幕后 <i aria-hidden="true">↓</i></a>
   </div>
 </section>
 
-<section class="pm wrap" id="team">
-  <div class="sec-head">
-    <span class="eyebrow">TEAM</span>
-    <span class="section-index">05 / 团队介绍</span>
-  </div>
-  <div class="grid3">
-    <span class="section-index">没几个人</span>
-    <div>
-      <h2 class="mf-h2">技术的部分是矿，<br><span>人的部分是模具。</span></h2>
-    </div>
-    <div class="mf-note">
-    </div>
-  </div>
+<!-- ============ 第四幕 · 幕后（成员） ============ -->
+<section class="act act-team" id="team" aria-labelledby="teamTitle">
+  <div class="wrap">
+    <header class="act-head" data-rv>
+      <p class="kicker"><b>第四幕</b><span>幕后 · PEOPLE</span><i class="kicker-line"></i></p>
+      <h2 class="act-title" id="teamTitle"><span class="ln"><span>台前是作品，</span></span><span class="ln"><span>幕后是这几个人。</span></span></h2>
+      <p class="act-lede">人不多，每个人都身兼好几份活。下面的介绍，是他们自己写的。</p>
+    </header>
 
-  <div class="pm-group">
-    <div class="pm-group-head"><b>成员</b><h3>HIGHLIGHT Studio</h3><small>MEMBERS</small></div>
-    <div class="pm-list">
-      <article class="pm-card">
-        <div class="pm-icon face"><img src="./assets/avatars/dianzd.jpg" alt=""></div>
-        <div>
-          <h4>点中点</h4>
-          <span class="pm-en">软件 / 服务器 / CubexTeaM</span>
+    <div class="people">
+      <article class="person" data-rv>
+        <div class="person-face"><img src="./assets/avatars/dianzd.webp" alt="点中点的头像" width="320" height="320" loading="lazy" decoding="async"></div>
+        <div class="person-body">
+          <h3>点中点</h3>
+          <span class="work-en">软件 / 服务器 / CubexTeaM</span>
           <p>你好，我是点中点，如你所见我是一个阴阳脑袋的方块人……在团队中负责软件的编写，你现在看到的这个官网就是我写的😋 还有服务器和 CubexTeaM 的主要负责人都是我哦~ 当然视频的制作多多少少也是会参与的。</p>
-          <div class="pm-tags"><span>软件编写</span><span>官网</span><span>服务器</span><span>CubexTeaM</span></div>
-        </div>
-        <div class="pm-side">
-          <div class="pm-links">
-            <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
+          <div class="tags"><span>软件编写</span><span>官网</span><span>服务器</span><span>CubexTeaM</span></div>
+          <div class="links">
+            <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">哔哩哔哩 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon face"><img src="./assets/avatars/fangkuai.jpg" alt=""></div>
-        <div>
-          <h4>方块守护者</h4>
-          <span class="pm-en">剪辑 / 视频制作 / 动画制作</span>
+      <article class="person" data-rv>
+        <div class="person-face"><img src="./assets/avatars/fangkuai.webp" alt="方块守护者的头像" width="320" height="320" loading="lazy" decoding="async"></div>
+        <div class="person-body">
+          <h3>方块守护者</h3>
+          <span class="work-en">剪辑 / 视频制作 / 动画制作</span>
           <p>主要负责视频剪辑、视频制作和动画制作，其他的等他自己来写😋</p>
-          <div class="pm-tags"><span>剪辑</span><span>视频制作</span><span>动画制作</span></div>
-        </div>
-        <div class="pm-side">
-          <div class="pm-links">
-            <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">抖音 ↗</a>
-            <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">哔哩哔哩 ↗</a>
+          <div class="tags"><span>剪辑</span><span>视频制作</span><span>动画制作</span></div>
+          <div class="links">
+            <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">抖音 <span aria-hidden="true">↗</span></a>
+            <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">哔哩哔哩 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
 
-      <article class="pm-card">
-        <div class="pm-icon face"><img src="./assets/avatars/logist.jpg" alt=""></div>
-        <div>
-          <h4>Logist</h4>
-          <span class="pm-en">插件开发 / 开源工具</span>
+      <article class="person" data-rv>
+        <div class="person-face" data-initial="L"><img src="./assets/avatars/logist.jpg" alt="Logist 的头像" width="320" height="320" loading="lazy" decoding="async" onerror="this.remove()"></div>
+        <div class="person-body">
+          <h3>Logist</h3>
+          <span class="work-en">插件开发 / 开源工具</span>
           <p>一名喜欢代码但是能力不足，一边用 AI 开发项目一边深入学习的高中生。主要在搞服务器和Cubex系列[摸鱼中][爱跑路]</p>
-          <div class="pm-tags"><span>插件开发</span><span>ServerTicket</span><span>MCcmd</span></div>
-        </div>
-        <div class="pm-side">
-          <div class="pm-links">
-            <a href="https://github.com/Logist1024" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://logist1024.github.io/" target="_blank" rel="noopener">个人主页 ↗</a>
+          <div class="tags"><span>插件开发</span><span>ServerTicket</span><span>MCcmd</span></div>
+          <div class="links">
+            <a href="https://github.com/Logist1024" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://logist1024.github.io/" target="_blank" rel="noopener">个人主页 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
     </div>
-  </div>
 
-  <div class="pm-group">
-    <div class="pm-group-head"><b>子团队</b><h3>OurmcTeam / CubexTeaM</h3><small>SUB TEAMS</small></div>
-    <div class="pm-list">
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>OurmcTeam</h4>
-          <span class="pm-en">OurMC 系列服务器</span>
-          <p>成员介绍待补充。</p>
-          <div class="pm-tags"><span>服务器</span></div>
-        </div>
-        <div class="pm-side">
-          <div class="pm-links"><a href="https://our-mc.cn" target="_blank" rel="noopener">our-mc.cn ↗</a></div>
-        </div>
-      </article>
-
-      <article class="pm-card">
-        <div class="pm-icon" aria-hidden="true"></div>
-        <div>
-          <h4>CubexTeaM</h4>
-          <span class="pm-en">Cubex 系列软件与模型</span>
-          <p>成员介绍待补充。</p>
-          <div class="pm-tags"><span>软件</span><span>模型</span></div>
-        </div>
-        <div class="pm-side">
-          <div class="pm-links"><a data-scroll="#products">看产品 ↑</a></div>
-        </div>
-      </article>
-    </div>
+    <a class="act-next" href="#join"><span>最后一幕</span>留白 <i aria-hidden="true">↓</i></a>
   </div>
 </section>
 
-<section class="joinband" id="join">
-  <div class="joinband-inner">
-    <span class="eyebrow">06 / JOIN US</span>
-    <h2>还差<br><em>一个你。</em></h2>
-    <p>超级缺人，求求快来😭</p>
-    <a class="join-cta" href="./join.html"><u></u><span style="position:relative">加入我们</span><i style="position:relative">↗</i></a>
-    <div class="joinband-roles">
-      <span>编曲</span><span>动画制作</span><span>宣发</span><span>美术</span><span>剪辑</span><span>插件开发</span><span>模组开发</span><span>NET8+ 软件开发</span><span>用户界面设计</span>
-    </div>
+<!-- ============ 终幕 · 留白（加入我们） ============ -->
+<section class="act act-join" id="join" aria-labelledby="joinTitle">
+  <div class="wrap">
+    <header class="act-head" data-rv>
+      <p class="kicker"><b>终幕</b><span>留白 · JOIN US</span><i class="kicker-line"></i></p>
+      <h2 class="act-title big" id="joinTitle"><span class="ln"><span>故事还没写完，</span></span><span class="ln"><span>下一位主角<em>可以是你。</em></span></span></h2>
+      <p class="act-lede">九个方向长期开放。挑一个你想做的，来聊聊。</p>
+    </header>
+  </div>
+
+  <div class="ticker" id="ticker" aria-label="正在招募的方向">
+    <ul class="ticker-track">
+      <li>编曲</li><li>动画制作</li><li>宣发</li><li>美术</li><li>剪辑</li><li>插件开发</li><li>模组开发</li><li>软件开发</li><li>用户界面设计</li>
+    </ul>
+    <ul class="ticker-track" aria-hidden="true">
+      <li>编曲</li><li>动画制作</li><li>宣发</li><li>美术</li><li>剪辑</li><li>插件开发</li><li>模组开发</li><li>软件开发</li><li>用户界面设计</li>
+    </ul>
+  </div>
+
+  <div class="wrap join-cta" data-rv>
+    <a class="btn" href="./join.html"><span>看看这九个位置</span><i aria-hidden="true">↗</i></a>
+    <a class="btn ghost" href="mailto:hsdianzd@our-mc.cn"><span>直接写信</span><i aria-hidden="true">→</i></a>
   </div>
 </section>
 
 </main>
 
-<footer id="foot">
-  <div class="foot-top">
-    <div class="foot-col">
-      <h5>Studio</h5>
-      <p>HIGHLIGHT Studio</p>
-      <p>软件 · 服务器 · 媒体 · Minecraft 动画</p>
-      <p>以人文铸科技</p>
-    </div>
-    <div class="foot-col">
-      <h5>Products</h5>
-      <a data-scroll="#products">CubexDesktop</a>
-      <a data-scroll="#products">CubexTeam</a>
-      <a data-scroll="#products">Cubex-Echo</a>
-      <a data-scroll="#products">Cubex 系列模型</a>
-      <a href="https://our-mc.cn" target="_blank" rel="noopener">OurMC 系列服务器 ↗</a>
-    </div>
-    <div class="foot-col">
-      <h5>Media</h5>
-      <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">方块守护者 · 哔哩哔哩</a>
-      <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">方块守护者 · 抖音</a>
-      <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">点中点 · 哔哩哔哩</a>
-      <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">点中点 · GitHub</a>
-      <a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">HIGHLIGHT Studio · 哔哩哔哩</a>
-      <a data-scroll="#feature">越权者</a>
-    </div>
-    <div class="foot-col">
-      <h5>Join</h5>
-      <a href="./join.html">加入我们 ↗</a>
-      <a href="mailto:hsdianzd@our-mc.cn">hsdianzd@our-mc.cn</a>
-      <p>QQ 3877364376</p>
+<!-- ============ 页脚 + trae 式网格扭曲字标 ============ -->
+<footer class="foot" id="foot">
+  <div class="foot-body">
+    <div class="wrap">
+      <div class="foot-lead">
+        <p class="foot-say">散场了，<br><span>灯还亮着。</span></p>
+        <a class="foot-top" href="#top">回到开场 <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Studio</h5>
+          <p>HIGHLIGHT Studio</p>
+          <p>软件 · 服务器 · 影像 · Minecraft 动画</p>
+          <p>以人文铸科技</p>
+        </div>
+        <div class="foot-col">
+          <h5>Products</h5>
+          <a href="#products">CubexDesktop</a>
+          <a href="#products">CubexTeam</a>
+          <a href="#products">Cubex-Echo</a>
+          <a href="#products">Cubex Aura</a>
+          <a href="https://our-mc.cn" target="_blank" rel="noopener">OurMC 系列服务器 ↗</a>
+          <a href="#feature">越权者</a>
+        </div>
+        <div class="foot-col">
+          <h5>Media</h5>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAA6l3Q2b9OBv3SRSCAR-rzXw8KzIYFwrzRI-qXA2hwyveWs4N40lMzNZl6aIAqWbCo" target="_blank" rel="noopener">方块守护者 · 抖音</a>
+          <a href="https://space.bilibili.com/3546704016051152" target="_blank" rel="noopener">方块守护者 · 哔哩哔哩</a>
+          <a href="https://space.bilibili.com/3546681259854444" target="_blank" rel="noopener">点中点 · 哔哩哔哩</a>
+          <a href="https://github.com/dian-ZD" target="_blank" rel="noopener">点中点 · GitHub</a>
+          <a href="https://b23.tv/MWC6TgT" target="_blank" rel="noopener">HIGHLIGHT Studio · 哔哩哔哩</a>
+        </div>
+        <div class="foot-col">
+          <h5>Join</h5>
+          <a href="./join.html">加入我们 ↗</a>
+          <a href="mailto:hsdianzd@our-mc.cn">hsdianzd@our-mc.cn</a>
+          <p>QQ 3877364376</p>
+        </div>
+      </div>
+      <div class="foot-bar">
+        <span>© 2026 HIGHLIGHT STUDIO</span>
+        <span>以人文铸科技</span>
+        <a href="#top">回到顶部 ↑</a>
+      </div>
     </div>
   </div>
 
-  <div class="foot-mark" id="footMark">
-    <div class="foot-mark-inner" id="footMarkInner">
-      <canvas class="foot-mark-canvas" id="footPx" aria-hidden="true"></canvas>
-      <img class="foot-logo" src="./assets/logo-wordmark-light.png" alt="HIGHLIGHT STUDIO">
+  <div class="distort" id="distort" style="--aspect:4.0359">
+    <div class="distort-stage" id="distortStage">
+      <div class="distort-canvas" id="distortCanvas">
+        <img class="distort-img" data-src="./assets/footer-mark.webp" alt="HIGHLIGHT STUDIO" width="1800" height="446" loading="lazy" decoding="async">
+      </div>
     </div>
-  </div>
-
-  <div class="foot-bar">
-    <span><b>© 2026 HIGHLIGHT STUDIO</b></span>
-    <span>让科技归还于人，真正为人所用</span>
-    <span><a data-scroll="#top" style="color:inherit">回到顶部 ↑</a></span>
   </div>
 </footer>
 
-<script src="./assets/vendor/gsap.min.js"></script>
-<script src="./assets/vendor/ScrollTrigger.min.js"></script>
-<script src="./assets/vendor/ScrollToPlugin.min.js"></script>
-<script src="./assets/vendor/SplitText.min.js"></script>
-<script src="./script.js"></script>
 </body>
 </html>
-
-
-
-
